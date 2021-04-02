@@ -17,6 +17,7 @@ package org.apache.ibatis.exceptions;
 
 /**
  * @author Clinton Begin
+ * 已废弃
  */
 @Deprecated
 public class IbatisException extends RuntimeException {

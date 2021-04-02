@@ -34,6 +34,7 @@ import org.apache.ibatis.io.Resources;
 /**
  * @author Clinton Begin
  * @author Eduardo Macarron
+ * 非迟话的数据源
  */
 public class UnpooledDataSource implements DataSource {
   
