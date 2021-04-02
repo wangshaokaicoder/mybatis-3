@@ -41,6 +41,8 @@ import org.xml.sax.SAXParseException;
 
 /**
  * @author Clinton Begin
+ * 用来解析xml
+ *
  */
 public class XPathParser {
 

@@ -20,6 +20,7 @@ import java.util.Properties;
 /**
  * @author Clinton Begin
  * @author Kazuki Shimizu
+ * 属性解析器
  */
 public class PropertyParser {
 
@@ -58,7 +59,9 @@ public class PropertyParser {
 
   private static class VariableTokenHandler implements TokenHandler {
     private final Properties variables;
+    //开启属性默认值   ${db.username:postgres} 格式取后面的默认值
     private final boolean enableDefaultValue;
+    //默认分隔符 :
     private final String defaultValueSeparator;
 
     private VariableTokenHandler(Properties variables) {
@@ -71,11 +74,16 @@ public class PropertyParser {
       return (variables == null) ? defaultValue : variables.getProperty(key, defaultValue);
     }
 
+
+    /**
+     *  获取某个属性的值
+     */
     @Override
     public String handleToken(String content) {
       if (variables != null) {
         String key = content;
         if (enableDefaultValue) {
+          //如果开启了默认属性
           final int separatorIndex = content.indexOf(defaultValueSeparator);
           String defaultValue = null;
           if (separatorIndex >= 0) {
